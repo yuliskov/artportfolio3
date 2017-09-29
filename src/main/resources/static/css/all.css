@@ -1,0 +1,181 @@
+body {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* FIX LAYOUT ON PHONES */
+
+.bs-docs-sidebar.affix.col-sm-2 {
+    padding-left: 0px;
+}
+
+#content-wrap {
+    position: inherit;
+    padding-right: 0px;
+}
+
+#container {
+    min-width: 970px;
+}
+
+/* END FIX LAYOUT ON PHONES */
+
+/* CONTENT VIEW STYLE */
+
+#content pre {
+    background-color: initial;
+    border: initial;
+    padding: initial;
+    /* don't break the words */
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+/* END CONTENT VIEW STYLE */
+
+
+/* FIXED NAVBAR */
+
+.bs-docs-sidebar nav {
+    top: 20px;
+    width: inherit;
+}
+
+/* END FIXED NAVBAR */
+
+/* RESPONSIVE FEATURES */
+
+.bs-docs-sidebar, #content-wrap {
+    padding-top: 1em;
+}
+
+.bs-docs-sidebar.col-sm-2 {
+    width: 15em;
+    max-width: 100%;
+}
+
+#content-wrap.col-sm-10 {
+    width: initial;
+}
+
+/* fit image/video into environment */
+#content .media img, #content .media iframe {
+    max-width: 100%;
+    max-height: 40em;
+}
+
+/* END RESPONSIVE FEATURES */
+
+/* DASH STYLE */
+
+/* language switcher */
+
+.nav > li > a {
+    display: inline-block;
+}
+
+.lang {
+    padding-left: 10px;
+    display: inline-block;
+    background: url('dash.png') repeat;
+    background-size: 1em 1.5em;
+}
+
+.lang > a > span {
+    background-color: white;
+}
+
+
+/* language switcher end */
+
+/* logo */
+.bs-docs-sidebar .nav:first-child > li:first-child {
+    min-height: 3em;
+}
+
+/* remove logo decoration */
+.bs-docs-sidebar .nav:first-child > li:first-child > a {
+    text-decoration: none;
+}
+
+.bs-docs-sidebar ul:first-child > li, .nav-bottom {
+    background: url('dash.png') repeat;
+    background-size: 1em 1.5em;
+}
+
+.bs-docs-sidebar ul:first-child > li > a > span {
+    background-color: white;
+}
+
+/* TODO: avoid using important tags */
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus,
+.bs-docs-sidebar .nav .active a {
+    background-color: transparent;
+}
+
+.logo {
+    text-align: center;
+}
+
+.bs-docs-sidebar .nav .nav {
+    padding-left: 15px;
+    background-color: white;
+}
+
+.bs-docs-sidebar ul:first-child > li > a {
+    padding-left: 10px;
+}
+
+
+/* DASH STYLE END */
+
+/* CALENDAR STYLE */
+
+.bs-docs-sidebar ul li.calendar ul li {
+    min-width: 2em;
+}
+
+.bs-docs-sidebar ul li.calendar ul li,
+.bs-docs-sidebar ul li.calendar ul li a {
+    display: inline-block;
+}
+
+/* CALENDAR STYLE END */
+
+a, a:hover, a:focus {
+    color: black;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#content-controls {
+    font-size: large;
+}
+
+.bs-docs-sidebar.affix {
+    position: static
+}
+
+.bs-docs-sidebar .nav>li>a {
+    padding: 0px;
+    font-weight: 500;
+}
+
+.bs-docs-sidebar .nav>li>a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+.bs-docs-sidebar .nav>.active:focus>a,
+.bs-docs-sidebar .nav>.active:hover>a,
+.bs-docs-sidebar .nav>.active>a {
+    background-color: transparent;
+    text-decoration: underline;
+}
+.bs-docs-sidebar .nav .nav {
+    display: none;
+}
+.bs-docs-sidebar .nav > .active > ul {
+    display: block
+}

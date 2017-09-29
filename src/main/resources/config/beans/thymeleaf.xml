@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+       <!-- **************************************************************** -->
+       <!--  THYMELEAF-SPECIFIC ARTIFACTS                                    -->
+       <!--  TemplateResolver <- TemplateEngine <- ViewResolver              -->
+       <!-- **************************************************************** -->
+
+       <bean id="templateResolver"
+             class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+              <property name="prefix" value="/WEB-INF/templates/"/>
+              <property name="templateMode" value="HTML5"/>
+              <!-- Template cache is true by default. Set to false if you want -->
+              <!-- templates to be automatically updated when modified.        -->
+              <property name="cacheable" value="${thymeleaf.cacheable}"/>
+              <property name="characterEncoding" value="UTF-8"/>
+       </bean>
+
+       <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+              <property name="templateResolver" ref="templateResolver"/>
+       </bean>
+
+       <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+              <property name="viewNames" value="*.html"/>
+              <property name="templateEngine" ref="templateEngine"/>
+              <property name="order" value="1"/>
+              <property name="characterEncoding" value="UTF-8"/>
+       </bean>
+</beans>

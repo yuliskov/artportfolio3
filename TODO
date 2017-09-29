@@ -1,0 +1,43 @@
+* internationalization
+* add history api
+* pending upload cleanup
+* isdebugenabled в log4j
+* add shopping cart example (https://github.com/Jan90/Shop2)
+* cleanup server from unused images. best way to do this when full model is being saved
+
+done:
+* add save notification
+* add REST return codes (201, 204, 404, 488 etc) https://www.playframework.com/documentation/2.0/ScalaActions
+* assign different upload and database paths for local and remote servers
+* hide 'description' and 'url' from 2 level menu???
+* button hidden click handler
+* replace SectionView with GalleryView
+* route sub domain queries (HandlerInterceptor)
+* bug: add index to newly uploaded image
+* apply javascript module pattern to backbone objects
+* migrate to PostgreSql
+* running on production environment disable logging and other debug stuff
+* migrate to bootstrap3
+* jackson json parser
+* bug in contacts: blank li's
+* static files, cache headers
+* maven minify plugin
+* github remote repo
+* use variable as app name
+* change favicon
+* move database to HOME directory
+* move contentEditable inner most so user cant delete outer tags
+* add to every new link attribute target (admin.js)
+* convert pasted url to plain text (admin.js)
+* avoid gallery refresh on move on delete (main.js)
+* move carousel key binding to global App object (main.js)
+
+tehniques (Responsibilities):
+* add Spring MockMvc for testing controllers
+* add routing
+* backbone, one to many relationship (nested models)
+* using spring profiles to handle production and development evironments
+* using HttpSession, Session Beans, CookieLocaleResolver, SessionLocaleResolver
+* internationalization/localization
+* REST
+* used template engine Thymeleaf

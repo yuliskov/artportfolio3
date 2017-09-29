@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Mykyta Lyskov Personal Site"/>
+    <meta name="keywords" content="Nikita,Mykyta,Lyskov,Lys'kov,Liskov,Arts,Animation,Микита,Никита,Лыськов,Лиськов,Рисунки,Анимация"/>
+    <meta name="author" content="Mykyta Lyskov"/>
+    <meta property="og:title" content="Mykyta Lyskov Personal Site"/>
+    <meta property="og:description" content="Mykyta Lyskov Personal Site"/>
+    <meta property="og:image" content="http://www.nikitaliskov.com/static/img/logos/Transformation.gif"/>
+    <link rel="image_src" href="http://www.nikitaliskov.com/static/img/logos/Transformation.gif"/>
+
+    <!-- TODO: hello world -->
+    <title th:text="#{message.title}">M Y K Y T A&nbsp;&nbsp;&nbsp;L Y S K O V</title>
+
+    <!-- TODO: remove relativity -->
+    <base th:href="@{/static/}" href="../static/artportfolio/"/>
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+
+    <!-- Bootstrap -->
+    <link href="js/lib/bootstrap3/css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/all.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="loading" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 100; text-align: center">
+        <h5 th:text="#{message.loading}">Загрузка...</h5>
+        <img style="width: 5em" src="img/loading.gif"/>
+    </div>
+    <div id="container" class="container-fluid" style="display: none">
+        <!-- fix layout on phones: col-xs-2 -->
+        <div class="bs-docs-sidebar affix col-sm-2 col-xs-2">
+            <!--<div class="lang">-->
+                <!--<a href="/?locale=ru">ru</a>-->
+                <!--<a href="/?locale=us">en</a>-->
+            <!--</div>-->
+            <nav>
+                <div id="menu">
+
+                </div>
+                <div class="nav-bottom">&nbsp;</div>
+            </nav>
+        </div>
+        <div id="content-wrap" class="col-sm-5">
+            <div id="content-controls" class="hidden">
+                <a id="prev" href="javascript:">&lt;</a>
+                <a id="next" href="javascript:">&gt;</a>
+            </div>
+            <div id="content">
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/template" id="lang-switch">
+        <div class="lang">
+<!--                 <a href="/?locale=ru"><span>ru</span></a>
+                <a href="/?locale=us"><span>en</span></a> -->
+        </div>
+    </script>
+
+
+    <script type="text/template" id="youtube-template">
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{= videoId }}?rel=0" frameborder="0" allowfullscreen=""></iframe>
+    </script>
+
+    <script type="text/template" id="vimeo-template">
+        <iframe src="https://player.vimeo.com/video/{{= videoId }}" width="500" height="281" frameborder="0" allowfullscreen=""></iframe>
+    </script>
+
+    <script type="text/template" id="image-template">
+        <a href="javascript:">
+            <img src="{{= typeof(url) == 'undefined' ? '' : url }}"/>
+        </a>
+    </script>
+
+    <script type="text/template" id="menu-item-template">
+        <!-- IE fix: open new tab when using anhor with blank attribute -->
+        <a id="{{= id}}" href="{{= typeof(url) == 'undefined' || !url ? 'javascript:' : url }}" target="{{= typeof(url) == 'undefined' ? '' : 'blank' }}"><span>{{= typeof title == 'undefined' || !title ? position : title }}</span></a>
+    </script>
+
+    <script type="text/template" id="content-item-template">
+        <div class="media">
+        </div>
+        <div class="text">
+        </div>
+    </script>
+    <script type="text/template" id="content-item-template-text">
+        <div>
+            <strong>
+                {{= typeof(title) == 'undefined' ? '' : title }}
+            </strong>
+        </div>
+        <pre>{{= typeof(description) == 'undefined' ? '' : description }}</pre>
+    </script>
+
+
+    <script type="text/template" id="footer-template">
+        <p><a href='http://nikitaliskov.com' target='blank'>www.nikitaliskov.com</a>, <a href='http://nikitaliskov.pp.ua' target='blank'>www.nikitaliskov.pp.ua</a>, <a href='http://nikitaliskov.tk' target='blank'>www.nikitaliskov.tk</a></p>
+    </script>
+
+    <script src="js/lib/require.js"></script>
+    <script>
+        require(['js/common.js'], function() {
+            require(['jquery'], function() {
+                $(document).on('initDone', function() {
+                    $('#container').show();
+                    $('#loading').remove();
+                    console.log('init done!!!');
+
+                });
+            });
+            require(['app/App'], function(App) {
+                new App();
+            });
+        });
+    </script>
+</body>
+</html>
