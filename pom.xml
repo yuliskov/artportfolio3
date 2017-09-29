@@ -229,6 +229,9 @@
             <dependencies>
                 <!-- to disable unnecessary logging on server move log4j artifact here -->
             </dependencies>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <finalName>${project.artifactId}</finalName>
                 <plugins>
@@ -308,24 +311,6 @@
                         </executions>
                     </plugin>
                 </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>openshift3.0</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <finalName>${project.artifactId}</finalName>
-				<plugins>
-				  <plugin>
-				      <artifactId>maven-war-plugin</artifactId>
-				      <version>2.6</version>
-				      <configuration>
-				        	<warName>ROOT</warName>
-				      </configuration>
-				  </plugin>
-				</plugins>
             </build>
         </profile>
     </profiles>
