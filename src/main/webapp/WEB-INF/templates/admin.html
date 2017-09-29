@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Admin</title>
+
+    <base th:href="@{/static/}" href="../static/artportfolio/"/>
+
+    <!-- Bootstrap -->
+    <link href="js/lib/bootstrap3/css/bootstrap.css" rel="stylesheet"/>
+
+    <style type="text/css">
+        li {
+            display: block;
+        }
+        /* reset Bootstrap stylesheet */
+        .panel {
+            background-color: initial;
+            margin-bottom: initial;
+        }
+        input[data-name=position] {
+            width: 3em!important;
+        }
+        input[data-name=content-upload] {
+            width: 10em!important;
+        }
+
+        textarea:focus {
+            overflow: initial;
+        }
+
+        textarea {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 100; text-align: center">
+        <h5 th:text="#{message.loading}">Loading...</h5>
+        <img style="width: 5em" src="img/loading.gif"/>
+    </div>
+    <div id="container" style="display: none" class="container-fluid well">
+        <div class="btn-group col-md-offset-5">
+            <a class="btn btn-default" href="/">www.nikitaliskov.com</a>
+<!--             <a class="btn btn-default" href="/admin?locale=ru">ru</a>
+            <a class="btn btn-default" href="/admin?locale=us">en</a> -->
+        </div>
+        <form class="form-inline">
+            <div id="list" class="row">
+                <!-- content -->
+            </div>
+        </form>
+    </div>
+
+
+    <script type="text/template" id="input-item-template">
+        <label>{{= name }}</label><input type="text" value="{{= value }}" />
+    </script>
+
+
+    <script type="text/template" id="menu-template">
+        <button th:text="#{button.addItem}" class="btn btn-default btn-add" type="button">Add</button>
+    </script>
+
+    <script type="text/template" id="menu-wrapper-template">
+        <button th:text="#{message.saveAll}" class="btn btn-primary btn-lg col-md-offset-5 btn-save-all" type="button">Save all</button>
+        <div th:text="#{message.success}" id="success" class="alert alert-success hidden" role="alert">
+            <strong>Well done!</strong> You successfully saved <a href="#" class="alert-link">all pending changes</a>.
+        </div>
+        <div id="danger" class="alert alert-danger hidden" role="alert">
+            <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+        </div>
+    </script>
+
+
+    <script type="text/template" id="menu-item-template">
+        <input type="text" value="{{= typeof(title) == 'undefined' ? '' : title }}" placeholder="title" class="form-control" data-name="title"/>
+        <button th:text="#{button.collapse}" type="button" data-toggle="collapse" data-target="#{{= viewId }}" data-parent="#{{= parentViewId }}" class="btn btn-default btn-collapse" data-name="btn-collapse">Collapse</button>
+        <input type="text" value="{{= typeof(url) == 'undefined' ? '' : url }}" placeholder="url" class="form-control" data-name="url"/>
+        <span class="content"></span>
+        <input type="text" value="{{= typeof(position) == 'undefined' ? '' : position }}" placeholder="position" class="form-control" data-name="position"/>
+        <button th:text="#{button.remove}" type="button" class="form-control btn btn-default btn-remove">Remove</button>
+        <input type="text" value="{{= typeof(style) == 'undefined' ? '' : style }}" placeholder="style" class="form-control" data-name="style"/>
+        <input type="text" value="{{= typeof(hide) == 'undefined' ? '' : hide }}" placeholder="hide" class="form-control" data-name="hide"/>
+
+        <div class="collapse" id="{{= viewId }}">
+
+        </div>
+    </script>
+
+    <script type="text/template" id="content-item-template">
+        <input type="text" value="{{= typeof(url) == 'undefined' ? '' : url }}" placeholder="content-url" class="form-control" data-name="content-url"/>
+        <input type="file" name="upload" class="form-control" data-name="content-upload"/>
+        <input type="text" value="{{= typeof(title) == 'undefined' ? '' : title }}" placeholder="content-title" class="form-control" data-name="content-title"/>
+        <textarea rows="1" placeholder="content-description" class="form-control" data-name="content-description">{{= typeof(description) == 'undefined' ? '' : description }}</textarea>
+        <!--<input type="text" value="{{= typeof(description) == 'undefined' ? '' : description }}" placeholder="content-description" class="form-control" data-name="content-description"/>-->
+    </script>
+
+    <script src="js/lib/require.js"></script>
+    <script>
+        require(['js/common.js'], function() {
+            require(['jquery'], function() {
+                $(document).on('initDone', function() {
+                    $('#container').show();
+                    $('#loading').remove();
+                    console.log('init done!!!');
+                });
+            });
+            require(['admin/App', 'holder'], function(App) {
+                new App();
+            });
+        });
+    </script>
+</body>
+</html>

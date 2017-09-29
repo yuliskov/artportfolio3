@@ -1,0 +1,38 @@
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Openshift PaaS internal files
+#.openshift/
+
+# backup files
+test_data/
+original/
+bak/
+*bak/
+*bak2/
+tmp/
+temp/
+old/
+test/
+files/
+*.tmp
+*.bak
+*.bak*
+*.old
+*.old*
+
+# output
+target/
+*.war
+
+# database files
+data/
+
+# win-scripts and notes
+*.bat
+snippets.txt
+notes.txt
+note.txt
