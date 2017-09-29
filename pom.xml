@@ -225,10 +225,7 @@
     </build>
     <profiles>
         <profile>
-            <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+            <id>dev</id>
             <dependencies>
                 <!-- to disable unnecessary logging on server move log4j artifact here -->
             </dependencies>
@@ -262,6 +259,9 @@
             <!-- By default that is to put the resulting archive into the 'webapps' folder. -->
             <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
             <id>openshift</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <finalName>${project.artifactId}</finalName>
                 <plugins>
