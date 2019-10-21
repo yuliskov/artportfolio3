@@ -32,7 +32,7 @@
         <hibernate-jpa-2.0-api>1.0.1.Final</hibernate-jpa-2.0-api>
         <hibernate-jpa-2.1-api>1.0.0.Draft-16</hibernate-jpa-2.1-api>
         <hsqldb>2.3.2</hsqldb>
-        <jackson>2.5.2</jackson>
+        <jackson>2.10.0</jackson>
         <junit>4.9</junit>
         <log4j>1.2.17</log4j>
         <slf4j>1.7.5</slf4j>
